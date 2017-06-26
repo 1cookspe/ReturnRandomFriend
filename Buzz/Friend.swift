@@ -7,3 +7,32 @@
 //
 
 import Foundation
+import UIKit
+
+class Friend {
+    private var username: String?
+    private var profilePicture: UIImage?
+    
+    init(username: String, profilePicture: UIImage) {
+        self.username = username
+        self.profilePicture = profilePicture
+    }
+    
+    func setUsername(username: String) {
+        self.username = username
+    }
+    
+    func setProfilePhoto(photo: UIImage) {
+        self.profilePicture = photo
+    }
+    
+    func getUsername() -> String {
+        return self.username!
+    }
+    
+    func getProfilePhoto() -> UIImage {
+        return self.profilePicture!
+    }
+    
+}
+
