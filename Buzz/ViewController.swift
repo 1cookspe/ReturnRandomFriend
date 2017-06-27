@@ -165,6 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.activityIndicator.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
         } else {
+            // stop showing loading
             self.activityIndicator.stopAnimating()
             UIApplication.shared.endIgnoringInteractionEvents()
         }
