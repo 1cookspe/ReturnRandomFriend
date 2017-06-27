@@ -1,0 +1,6 @@
+framework module Pods_BuzzTests {
+  umbrella header "Pods-BuzzTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
