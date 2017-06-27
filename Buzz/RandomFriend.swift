@@ -66,15 +66,17 @@ class RandomFriend: UIViewController {
                             let request: NSURLRequest = NSURLRequest(url: imgURL as URL)
                             
                             // send url connection to download image from firebase storage, saved under "profilePicURL"
-                            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main, completionHandler: { (response, data, error) in
+                            let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                                data, response, error in
                                 if error == nil {
                                     profilePhoto = UIImage(data: data!)
+                                    
+                                    // the username is stored in "username" and the profile photo stored in "profilePhoto"
+                                    // pass values to create friend to returnFriend method
+                                    self.returnFriend(username: username, image: profilePhoto!)
                                 }
-                                
-                                // the username is stored in "username" and the profile photo stored in "profilePhoto"
-                                // pass values to create friend to returnFriend method
-                                self.returnFriend(username: username, image: profilePhoto!)
-                            })
+                            }
+                            task.resume()
                             
                         }
                         
